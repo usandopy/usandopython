@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>UsandoPy</title>
+    
+    <link
+      rel="stylesheet"
+      href="{% static 'assetss/vendors/mdi/css/materialdesignicons.min.css' %}"
+    />
+
+
+    <link
+      rel="stylesheet"
+      href="{% static 'assetss/vendors/aos/dist/aos.css/aos.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assetss/vendors/owl.carousel/dist/assets/owl.carousel.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assetss/vendors/owl.carousel/dist/assets/owl.theme.default.min.css' %}"
+    />
+    <!-- End plugin css for this page -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assetss/css/style.css' %}" />
+    
+    <!-- endinject -->
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <div class="main-panel">
+        <!-- partial:navbar.html -->
+        {% include './partials/_navbar.html' %}
+
+        <!--  block content -->
+        {% block content %} 
+          <!-- partial:home.html -->
+          {% include './partials/home.html' %}
+        {% endblock content %}
+        <!-- /.content -->
+
+        <!-- partial:partials/_footer.html -->
+        {% include './partials/_footer.html' %}
+        <!-- partial -->
+      </div>
+    </div>
+    <!-- inject:js -->
+    <script src="{% static 'assetss/vendors/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- plugin js for this page -->
+    <script src="{% static 'assetss/vendors/owl.carousel/dist/owl.carousel.min.js' %}"></script>
+    <!-- End plugin js for this page -->
+    <!-- Custom js for this page-->
+    <script src="{% static 'assetss/js/demo.js' %}"></script>
+
+    <!-- Optional JavaScript -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/mdb.min.js' %}"></script>
+    <!-- Theme Script -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+
+    <!-- End custom js for this page-->
+  </body>
+</html>
