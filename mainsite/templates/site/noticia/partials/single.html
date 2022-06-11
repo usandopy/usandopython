@@ -9,19 +9,23 @@
             {{ news.title }}
           </h1>
           <div class="text-center">
-            <a href="{{ news.category.get_absolute_url }}" class="btn btn-dark font-weight-bold mb-4">{{news.category}}</a>
+            <a href="{{ news.category.get_absolute_url }}" class="btn btn-primary font-weight-bold mb-4">{{news.category}}</a>
           </div>
           <p class="fs-15 d-flex justify-content-center align-items-center m-0">
             <img
-              src="{% if news.thumbnail_url %}  {{ news.thumbnail_url }} {% else %}{{ news.thumbnail.url }}{% endif %}"
+              src="{% if news.author.profile_pic %}  {{ news.author.profile_pic.url }} {% else %}{{ news.thumbnail.url }}{% endif %}"
               alt=""
-              class="img-xs img-rounded mr-2"
+              class="img-lg img-rounded mr-2"
             />
             {{ news.author|title }} | {{ news.timestamp|date:"j M Y" }}
           </p>
           <p class="pt-4 pb-4">
             {{ news.description|safe }}
           </p>
+
+          <div class="container mt-4 pt-2">
+            {% include 'posts/comments.html' %}
+          </div>
         </div>
        
         
@@ -39,8 +43,8 @@
                     alt="news"
                     class="img-fluid"
                   />
-                  <span class="thumb-title">
-                    <a href="{{ post.category.get_absolute_url }}"
+                  <span class="thumb-title badge bg-primary py-1">
+                    <a class="text-white" href="{{ post.category.get_absolute_url }}"
                     target="_self">{{ post.category }}</a>
                   </span>
                 </div>
