@@ -7,6 +7,9 @@ from django.urls import reverse, reverse_lazy
 from mainsite.models import HomePageSettings
 from news.models import Category, News
 
+from  main.models import Tutorial, Categoria, Tipo, Sobre
+from django_blog_it.django_blog_it.models import Post, Canal, Equipa
+
 from taggit.models import Tag
 
 
@@ -42,6 +45,10 @@ class HomeView(TemplateView):
         context['trending'] = results[6]
         context['editor_choice'] = results[7]
 
+        context['canal'] = Canal.objects.all().order_by('id')
+        context['equipa'] = Equipa.objects.all().order_by('id')
+        context['sobre'] = Sobre.objects.all()
+
         context['categories'] = Category.objects.all()
 
         return context
@@ -71,10 +78,14 @@ class CategoryView(DetailView, MultipleObjectMixin):
         context['post_all'] = news_list[3:]
         context['categories'] = Category.objects.all()
 
+        context['canal'] = Canal.objects.all().order_by('id')
+        context['equipa'] = Equipa.objects.all().order_by('id')
+        context['sobre'] = Sobre.objects.all()
+
         return context
 
 
-class PostSingleView(DetailView, FormMixin):
+class PostSingleView(DetailView):
     model = News
     context_object_name = 'news'
     success_url = reverse_lazy('newspaper:blog')
@@ -83,14 +94,15 @@ class PostSingleView(DetailView, FormMixin):
     def get_related_post_by_category(self):
         return super().get_queryset().filter(is_published='True', category=self.object.category.id).exclude(id=self.object.id).order_by('-id')
 
-    # def get_related_post_filter_by_tag(self):
-    #     for tag in Tag.objects.all():
-    #         return self.get_related_post_by_category().filter(tags__name__in=[tag])[:4]
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['related_posts'] = self.get_related_post_by_category()
         context['categories'] = Category.objects.all()
+
+        context['canal'] = Canal.objects.all().order_by('id')
+        context['equipa'] = Equipa.objects.all().order_by('id')
+        context['sobre'] = Sobre.objects.all()
+
         return context
 
     def get_success_url(self):
@@ -104,4 +116,4 @@ def FilterByTag(request, tag):
         'news_list': news_list,
         'tag': tag
     }
-    return render(request, 'site/pages/tag.html', context)
+    return render(request, 'site/noticia/partials/tag.html', context)

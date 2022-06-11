@@ -1,9 +1,9 @@
 {% load static %}
 
 <header id="header">
-  <div class="container">
+  <div class="container z-depth-0">
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar navbar-expand-lg navbar-light py-0 my-0">
+    <nav class="navbar navbar-expand-lg navbar-light py-0 my-0 z-depth-0">
       <div class="d-flex justify-content-between align-items-center navbar-top my-0 py-0">
         <ul class="navbar-left">
           <li id="date_header"></li>
@@ -11,8 +11,8 @@
         </ul>
         <div>
           <a class="navbar-brand" href="{% url 'newspaper:noticias' %}"
-            ><img src="{% static 'assetss/Logo.png' %}" alt="" style="height: 60px; width: 60px;"
-          /></a>
+            ><img src="{% static 'Logo.jpg' %}" alt="" style="height: 60px; width: 60px;"
+            /></a>
 
         </div>
         <div class="d-flex">

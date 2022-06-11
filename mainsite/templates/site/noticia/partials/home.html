@@ -11,13 +11,13 @@
               alt="world-news"
             />
             </a>
-            <span class="thumb-title">{{ hot_news.category }}</span>
+            <span class="thumb-title badge bg-primary py-1">{{ hot_news.category }}</span>
           </div>
-          <h1 class="font-weight-600 mt-3">
-            <a href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a>
+          <h1 class="dark-text mt-3">
+            <a class="text-dark h3" href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a>
           </h1>
           <p class="fs-15 font-weight-normal">
-            {{ hot_news.description|truncatechars:100 }}
+            {{ hot_news.description|safe|truncatechars:100 }}
           </p>
         </div>
       </div>
@@ -81,16 +81,16 @@
               alt="world-news"
             />
             </a>
-            <span class="thumb-title">{{ news.category }}</span>
+            <span class="thumb-title badge bg-primary py-1">{{ news.category }}</span>
           </div>
           <h5 class="font-weight-normal mt-3">
-            <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 15px; " class="font-weight-bold text-dark pt-2"
+            <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 15px; " class="text-dark pt-2"
             >{{ news.title }}</a>
           </h5>
           <p class="fs-15 font-weight-normal">
             {{ trending.description|safe|truncatechars:100 }}
           </p>
-          <a href="{{ news.get_absolute_url }}" class="font-weight-bold text-dark pt-2"
+          <a href="{{ news.get_absolute_url }}" class="font-weight-bold text-blue pt-2 h6"
             >Ler artigo</a
           >
         </div>

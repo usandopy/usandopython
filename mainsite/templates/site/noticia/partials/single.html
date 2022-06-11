@@ -9,7 +9,7 @@
             {{ news.title }}
           </h1>
           <div class="text-center">
-            <a href="#" class="btn btn-dark font-weight-bold mb-4">{{news.category}}</a>
+            <a href="{{ news.category.get_absolute_url }}" class="btn btn-dark font-weight-bold mb-4">{{news.category}}</a>
           </div>
           <p class="fs-15 d-flex justify-content-center align-items-center m-0">
             <img
@@ -26,13 +26,7 @@
        
         
         <div class="news-post-wrapper-sm mt-5">
-          <div class="text-center pb-5 mb-5 border-bottom">
-            {% for tag in news.tags.all %}
-            <a href="{% url 'newspaper:tag' tag %}" class="btn btn-dark font-weight-bold mr-2 mb-2 mb-sm-0"
-              >{{ tag }}</a>
-            {% endfor %}
-            
-          </div>
+          
           <div class="text-center">
           <h1 class="font-weight-600 text-center mb-5">Você pode gostar..</h1>
           {% for post in related_posts %}
@@ -58,7 +52,7 @@
                       {{ post.title }}
                     </a>
                   </h1>
-                  <p class="fs-15">O{{ post.author|title }} | {{ post.timestamp|date:"j M Y" }}</p>
+                  <p class="fs-15">{{ post.author|title }} | {{ post.timestamp|date:"j M Y" }}</p>
                 </div>
               </div>
             </div>
