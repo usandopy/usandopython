@@ -15,7 +15,27 @@
             /></a>
 
         </div>
-        <div class="d-flex">
+        <div class="d-flex ">
+          <div class="pb-0 pt-1 h3 text-dark mr-5">
+            {% for s in sobre %} {% if s.facebook %}
+            <a href="{{s.facebook}}" target="_blank">
+              <i class="fab fa-facebook-f px-2 text-dark"></i>
+            </a>
+            {% else %} {% endif %} 
+            {% if s.web %}
+            <a href="{{s.web}}" target="_blank">
+              <i class="fas fa-blog px-2 text-dark"></i>
+            </a>
+            {% else %} {% endif %} {% if s.instagram %}
+            <a href="{{s.instagram}}" target="_blank">
+              <i class="fab fa-instagram px-2 text-dark"></i>
+            </a>
+            {% else %} {% endif %} {% if s.youtube %}
+            <a href="{{s.youtube}}" target="_blank">
+              <i class="fab fa-youtube px-2 text-dark"></i>
+            </a>
+            {% else %} {% endif %}{% endfor%}
+          </div>
           <ul class="navbar-right">
             <li>
               <a href="#">ENGLISH</a>
@@ -24,26 +44,7 @@
               <a href="#">PORTUGUES</a>
             </li>
           </ul>
-          <div class="pb-0 pt-1 h3 text-dark">
-            {% for s in sobre %} {% if s.facebook %}
-            <a href="{{s.facebook}}" target="_blank">
-              <i class="fab fa-facebook-f px-3 text-dark"></i>
-            </a>
-            {% else %} {% endif %} 
-            {% if s.web %}
-            <a href="{{s.web}}" target="_blank">
-              <i class="fas fa-blog px-3 text-dark"></i>
-            </a>
-            {% else %} {% endif %} {% if s.instagram %}
-            <a href="{{s.instagram}}" target="_blank">
-              <i class="fab fa-instagram px-3 text-dark"></i>
-            </a>
-            {% else %} {% endif %} {% if s.youtube %}
-            <a href="{{s.youtube}}" target="_blank">
-              <i class="fab fa-youtube px-3 text-dark"></i>
-            </a>
-            {% else %} {% endif %}{% endfor%}
-          </div>
+          
         </div>
       </div>
       <div class="navbar-bottom-menu">
