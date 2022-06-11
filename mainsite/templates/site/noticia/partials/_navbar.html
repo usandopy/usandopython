@@ -24,33 +24,26 @@
               <a href="#">PORTUGUES</a>
             </li>
           </ul>
-          <ul class="social-media">
-            <li>
-              <a href="#">
-                <i class="mdi mdi-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="mdi mdi-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="mdi mdi-youtube"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="mdi mdi-linkedin"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="mdi mdi-twitter"></i>
-              </a>
-            </li>
-          </ul>
+          <div class="pb-0 pt-1 h3 text-dark">
+            {% for s in sobre %} {% if s.facebook %}
+            <a href="{{s.facebook}}" target="_blank">
+              <i class="fab fa-facebook-f px-3 text-dark"></i>
+            </a>
+            {% else %} {% endif %} 
+            {% if s.web %}
+            <a href="{{s.web}}" target="_blank">
+              <i class="fas fa-blog px-3 text-dark"></i>
+            </a>
+            {% else %} {% endif %} {% if s.instagram %}
+            <a href="{{s.instagram}}" target="_blank">
+              <i class="fab fa-instagram px-3 text-dark"></i>
+            </a>
+            {% else %} {% endif %} {% if s.youtube %}
+            <a href="{{s.youtube}}" target="_blank">
+              <i class="fab fa-youtube px-3 text-dark"></i>
+            </a>
+            {% else %} {% endif %}{% endfor%}
+          </div>
         </div>
       </div>
       <div class="navbar-bottom-menu">

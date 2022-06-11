@@ -17,9 +17,7 @@
             <img src="{% if hot_news.thumbnail_url %}  {{ hot_news.thumbnail_url }} {% else %}{{ hot_news.thumbnail.url }}{% endif %}" class="card-img-top" alt="Skyscrapers"/>
             <div class="card-body">
               <h5 class="card-title"><a href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a></h5>
-              <p class="card-text">
-                {{ hot_news.description|safe|truncatechars:100 }}
-              </p>
+              
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ hot_news.timestamp|date:"j M Y" }}</small>
@@ -35,7 +33,6 @@
               <h5 class="card-title">
                 <a href="{{ editor_choice.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self">{{ editor_choice.title }}</a>
               </h5>
-              <p class="card-text">{{ editor_choice.description|safe|truncatechars:100 }}</p>
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ editor_choice.timestamp|date:"j M Y" }}</small>
@@ -51,7 +48,6 @@
               <h5 class="card-title">
                 <a href="{{ trending.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self">{{ trending.title }}</a>
               </h5>
-              <p class="card-text">{{ trending.description|safe|truncatechars:100 }}</p>
             </div>
             <div class="card-footer">
               <small class="text-muted">{{ trending.timestamp|date:"j M Y" }}</small>
