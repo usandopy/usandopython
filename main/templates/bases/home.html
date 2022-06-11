@@ -10,22 +10,19 @@
 <div class="container mt-3" style="background-color: #fafafa">
   <div class="row">
     <!--News row-->
-    <div class="col-md-12 mb-0 z-depth-0">
+    <div class="col-md-12 mb-0 z-depth-0 mt-2">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
-          <div class="card h-80 z-depth-0 ">
+          <div class="card h-60 z-depth-0 ">
             <img src="{% if hot_news.thumbnail_url %}  {{ hot_news.thumbnail_url }} {% else %}{{ hot_news.thumbnail.url }}{% endif %}" class="card-img-top" alt="Skyscrapers"/>
             <div class="card-body">
               <h5 class="card-title"><a href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a></h5>
               
             </div>
-            <div class="card-footer">
-              <small class="text-muted">{{ hot_news.timestamp|date:"j M Y" }}</small>
-            </div>
           </div>
         </div>
         <div class="col">
-          <div class="card h-80 z-depth-0">
+          <div class="card h-60 z-depth-0">
             <a href="{{ editor_choice.get_absolute_url }}" target="_self">
               <img src="{% if editor_choice.thumbnail_url %}  {{ editor_choice.thumbnail_url }} {% else %}{{ editor_choice.thumbnail.url }}{% endif %}" class="card-img-top" alt="Los Angeles Skyscrapers"/>
             </a>
@@ -34,13 +31,10 @@
                 <a href="{{ editor_choice.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self">{{ editor_choice.title }}</a>
               </h5>
             </div>
-            <div class="card-footer">
-              <small class="text-muted">{{ editor_choice.timestamp|date:"j M Y" }}</small>
-            </div>
           </div>
         </div>
         <div class="col">
-          <div class="card h-80 z-depth-0">
+          <div class="card h-60 z-depth-0">
             <a href="{{ trending.get_absolute_url }}" target="_self">
               <img src="{% if trending.thumbnail_url %}  {{ trending.thumbnail_url }} {% else %}{{ trending.thumbnail.url }}{% endif %}" class="card-img-top" alt="Los Angeles Skyscrapers"/>
             </a>
@@ -48,9 +42,6 @@
               <h5 class="card-title">
                 <a href="{{ trending.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self">{{ trending.title }}</a>
               </h5>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">{{ trending.timestamp|date:"j M Y" }}</small>
             </div>
           </div>
         </div>

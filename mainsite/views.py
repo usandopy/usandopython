@@ -42,7 +42,7 @@ class HomeView(TemplateView):
         context['post_catalog_three'] = results[3][:2]
         context['post_catalog_four'] = results[4][:2]
         context['post_catalog_five'] = results[5]
-        context['post_catalog_five_title'] = results[1][:1]
+        context['post_catalog_five_title'] = results[5][:1]
         context['trending'] = results[6]
         context['editor_choice'] = results[7]
 

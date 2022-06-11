@@ -60,7 +60,7 @@
     </div>
 
     <!-- Catalog-1 -->
-    <div class="world-news">
+    <div class="world-news px-3">
       <div class="row">
         <div class="col-sm-12">
           <div class="d-flex position-relative  float-left">
@@ -90,7 +90,7 @@
     </div>
     <!-- / Trending -->
 
-    <div class="editors-news">
+    <div class="editors-news px-3">
       <div class="row">
         <div class="col-lg-3">
           <div class="d-flex position-relative float-left">
@@ -110,10 +110,10 @@
             </a>
             <span class="thumb-title badge bg-primary py-1">{{editor_choice.category}}</span>
           </div>
-          <h1 class="mt-3 h3">
-            <a href="{{ editor_choice.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self">{{ editor_choice.title }}</a>
+          <h1 class="dark-text mt-3">
+            <a class="text-dark h2" href="{{ editor_choice.get_absolute_url }}" style="color:#333333; font-size: 25px; " target="_self">{{ editor_choice.title }}</a>
           </h1>
-          <p class="fs-5">
+          <p class="fs-5" style="color:#333333; font-size: 25px; ">
             {{ editor_choice.description|safe|truncatechars:100 }}
           </p>
         </div>
@@ -133,14 +133,14 @@
               </div>
 
               <h5 class="font-weight-normal mt-3">
-                <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 15px; " class="text-dark pt-2"
+                <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 18px; " class="text-dark pt-2"
                 >{{ news.title }}</a>
               </h5>
               
               
-              <p class="fs-5">
+              <span class="fs-15">
                 {{ news.description|safe|truncatechars:100 }}
-              </p>
+              </span>
             </div>
             {% endfor %}
             
@@ -157,12 +157,12 @@
     </div>
 
     <!-- Catalog-5 -->
-    <div class="world-news">
+    <div class="world-news px-3">
       <div class="row">
         <div class="col-sm-12">
           <div class="d-flex position-relative  float-left">
             {% for news in post_catalog_five_title %}
-            <h3 class="section-title">{{news.category}}</h3>
+            <h3 class="section-title ">{{news.category}}</h3>
             {% endfor %}
           </div>
         </div>
