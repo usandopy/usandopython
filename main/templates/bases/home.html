@@ -7,258 +7,352 @@
 {% block banner %} {% include 'bases/banner.html' %} {% endblock %}
 <!-- /. Banner -->
 
-<div class="container mt-3" style="background-color: #fafafa;">
-    <div class="row ">
-        <div class="col-md-12 mb-0 z-depth-0 ">
-
-            <!--Grid row-->
-              <div class="row " style="background-color: #ffffff;">
-                <!--Grid column-->
-
-
-                <div class="col-lg-9 col-md-9 col-sm-12 pt-2 d-flex align-self-stretch mb-4 border rounded">
-
-                  <div class="row">
-                    {% for blog in tutorial_ %}
-                        <div class="col-lg-4 mt-2">
-                          <!--Image-->
-                          <div class="view overlay z-depth-0-half">
-                            <img
-                              src="{{ blog.featured_image.url }}"
-                              class="img-fluid"
-                              alt="Sample post image"
-                            />
-                            <a href="{% url 'tutorial-view' blog.slug %}">
-                              <div class="mask rgba-white-slight"></div>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-8 px-lg-0 px-md-0 px-sm-4 py-0 my-0">
-                          <!--Excerpt-->
-                          <div class="py-0 my-sm-4 my-0">
-                            <a href="{% url 'tutorial-view' blog.slug %}">
-                              <h1 >
-                                 <span class="font-weight-normal" style="color: #2e2f30;
-                                                    font-family: sans-serif;
-                                                    font-size: 20px;
-                                                    font-weight: 400;
-                                                    line-height: 33.6px;
-                                                    margin: 0px;
-                                                    text-transform: none;
-                                                    text-align: left;
-                                                    letter-spacing: normal;
-                                                    text-indent: 0px;">
-                                                    {{blog.title}}
-                                  </span>
-                              </h1>
-                            </a>
-                            <div class="text-muted text-left mb-2">
-                              <a
-                                href="{% url 'categoria-view' blog.category.slug  %}"
-                                class="light-blue-text"
-                              >
-                                <span class="badge unique-color float-left"
-                                  ><strong> {{blog.category}}</strong>
-                                </span>
-                              </a>
-                              <i class="pl-2 far fa-calendar"></i> {{blog.updated_on}}
-                            </div>
-
-                            <p class="pt-1 py-0 pr-2">
-                              {{ blog.meta_description|safe|truncatewords_html:50 }}
-                            </p>
-                          </div>
-                        </div>
-                    {% endfor %}
-
-                    {% for blog in post %}
-                        <div class="col-lg-4 mb-2">
-                          <!--Image-->
-                          <div class="view overlay z-depth-0-half">
-                            <img
-                              src="{{ blog.featured_image.url }}"
-                              class="img-fluid"
-                              alt="Sample post image"
-                            />
-                            <a href="{% url 'blog_post_view' blog_slug=blog.slug %}">
-                              <div class="mask rgba-white-slight"></div>
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class="col-lg-8 px-lg-0 px-md-0 px-sm-4 py-0 my-0">
-                          <!--Excerpt-->
-                          <div class="py-0 my-sm-4 my-0">
-                            <a href="{% url 'blog_post_view' blog_slug=blog.slug %}">
-                              <h1 >
-                                 <span class="font-weight-normal" style="color: #2e2f30;
-                                                    font-family: sans-serif;
-                                                    font-size: 20px;
-                                                    font-weight: 400;
-                                                    line-height: 33.6px;
-                                                    margin: 0px;
-                                                    text-transform: none;
-                                                    text-align: left;
-                                                    letter-spacing: normal;
-                                                    text-indent: 0px;">
-                                                    {{blog.title}}
-                                  </span>
-                              </h1>
-                            </a>
-                            <div class="text-muted text-left mb-2">
-                              <a
-                                href="{% url 'selected_category' category_slug=blog.category.slug %}"
-                                class="light-blue-text"
-                              >
-                                <span class="badge unique-color float-left"
-                                  ><strong> {{blog.category}}</strong>
-                                </span>
-                              </a>
-                              <i class="pl-2 far fa-calendar"></i> {{blog.updated_on}}
-                            </div>
-
-                            <p class="pt-1 py-0 pr-2">
-                              {{ blog.meta_description|safe|truncatewords_html:50 }}
-                            </p>
-                          </div>
-                        </div>
-                    {% endfor %}
-                  </div>
-
-                </div>
-
-                 <!-- ads-->
-                <div class=" col-lg-3 py-0 my-0 d-none d-xl-block d-md-block d-xxl-none">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                         crossorigin="anonymous"></script>
-                    <!-- lateral -->
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1810411345881098"
-                         data-ad-slot="6899621083"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 pt-2 d-flex align-self-stretch mb-4"></div>
-              </div>
-              <!--Grid row-->
-
+<div class="container mt-3" style="background-color: #fafafa">
+  <div class="row">
+    <!--News row-->
+    <div class="col-md-12 mb-0 z-depth-0">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-80 z-depth-0 ">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural lead-in to
+                additional content. This content is a little bit longer.
+              </p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 mb-0 z-depth-0">
-            <!-- ads-->
-            <div class=" px-0 my-2 d-none d-xl-block d-md-block d-xxl-none">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                     crossorigin="anonymous"></script>
-                <!-- lateral -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1810411345881098"
-                     data-ad-slot="6899621083"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+        <div class="col">
+          <div class="card h-80 z-depth-0">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
             </div>
-
-            <div class=" px-0 my-3 d-none d-xl-block d-md-block d-xxl-none">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                     crossorigin="anonymous"></script>
-                <!-- lateral -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1810411345881098"
-                     data-ad-slot="6899621083"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
             </div>
-
-            <div class=" px-0 my-2 mb-sm-4">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                     crossorigin="anonymous"></script>
-                <!-- lateral -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1810411345881098"
-                     data-ad-slot="6899621083"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            <!-- /. ads -->
+          </div>
         </div>
-
-        <div class="col-md-8 mb-0 z-depth-0">
-            <!-- categoria-->
-            {% block categoria %} {% include 'bases/categoria.html' %} {% endblock %}
-            <!-- /. categoria -->
-        </div>
-
-        <div class="col-md-4 mb-0 z-depth-0">
-            <!-- ads-->
-            <div class=" px-0 my-2 d-none d-xl-block d-md-block d-xxl-none">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                     crossorigin="anonymous"></script>
-                <!-- lateral -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1810411345881098"
-                     data-ad-slot="6899621083"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+        <div class="col">
+          <div class="card h-80 z-depth-0">
+            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top" alt="Palm Springs Road"/>
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural lead-in to
+                additional content. This card has even longer content than the first to show
+                that equal height action.
+              </p>
             </div>
-
-            <div class=" px-0 my-3 d-none d-xl-block d-md-block d-xxl-none">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                     crossorigin="anonymous"></script>
-                <!-- lateral -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1810411345881098"
-                     data-ad-slot="6899621083"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
             </div>
-
-            <div class=" px-0 my-2 mb-sm-4">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
-                     crossorigin="anonymous"></script>
-                <!-- lateral -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1810411345881098"
-                     data-ad-slot="6899621083"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            <!-- /. ads -->
+          </div>
         </div>
-        <div class="col-md-8 mb-0 z-depth-0 mx-0">
-            <!-- blog-->
-            {% block blog %} {% include 'bases/blog.html' %} {% endblock %}
-            <!-- /. blog -->
-        </div>
+      </div>
     </div>
+    <!--News row-->
+
+    <div class="col-md-4 mb-0 z-depth-0">
+      <!-- ads-->
+      <div class="px-0 my-2 d-none d-xl-block d-md-block d-xxl-none">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+          crossorigin="anonymous"
+        ></script>
+        <!-- lateral -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-1810411345881098"
+          data-ad-slot="6899621083"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="px-0 my-3 d-none d-xl-block d-md-block d-xxl-none">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+          crossorigin="anonymous"
+        ></script>
+        <!-- lateral -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-1810411345881098"
+          data-ad-slot="6899621083"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="px-0 my-2 mb-sm-4">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+          crossorigin="anonymous"
+        ></script>
+        <!-- lateral -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-1810411345881098"
+          data-ad-slot="6899621083"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <!-- /. ads -->
+    </div>
+
+    <div class="col-md-8 mb-0 z-depth-0">
+      <!-- categoria-->
+      {% block categoria %} {% include 'bases/categoria.html' %} {% endblock %}
+      <!-- /. categoria -->
+    </div>
+
+    <div class="col-md-12 mb-0 z-depth-0">
+      <!--Grid row-->
+      <div class="row" style="background-color: #ffffff">
+        <!--Grid column-->
+
+        <div
+          class="col-lg-9 col-md-9 col-sm-12 pt-2 d-flex align-self-stretch mb-4 border rounded"
+        >
+          <div class="row">
+            {% for blog in tutorial_ %}
+            <div class="col-lg-4 mt-2">
+              <!--Image-->
+              <div class="view overlay z-depth-0-half">
+                <img
+                  src="{{ blog.featured_image.url }}"
+                  class="img-fluid"
+                  alt="Sample post image"
+                />
+                <a href="{% url 'tutorial-view' blog.slug %}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-8 px-lg-0 px-md-0 px-sm-4 py-0 my-0">
+              <!--Excerpt-->
+              <div class="py-0 my-sm-4 my-0">
+                <a href="{% url 'tutorial-view' blog.slug %}">
+                  <h1>
+                    <span
+                      class="font-weight-normal"
+                      style="
+                        color: #2e2f30;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 33.6px;
+                        margin: 0px;
+                        text-transform: none;
+                        text-align: left;
+                        letter-spacing: normal;
+                        text-indent: 0px;
+                      "
+                    >
+                      {{blog.title}}
+                    </span>
+                  </h1>
+                </a>
+                <div class="text-muted text-left mb-2">
+                  <a
+                    href="{% url 'categoria-view' blog.category.slug  %}"
+                    class="light-blue-text"
+                  >
+                    <span class="badge unique-color float-left"
+                      ><strong> {{blog.category}}</strong>
+                    </span>
+                  </a>
+                  <i class="pl-2 far fa-calendar"></i> {{blog.updated_on}}
+                </div>
+
+                <p class="pt-1 py-0 pr-2">
+                  {{ blog.meta_description|safe|truncatewords_html:50 }}
+                </p>
+              </div>
+            </div>
+            {% endfor %} {% for blog in post %}
+            <div class="col-lg-4 mb-2">
+              <!--Image-->
+              <div class="view overlay z-depth-0-half">
+                <img
+                  src="{{ blog.featured_image.url }}"
+                  class="img-fluid"
+                  alt="Sample post image"
+                />
+                <a href="{% url 'blog_post_view' blog_slug=blog.slug %}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-8 px-lg-0 px-md-0 px-sm-4 py-0 my-0">
+              <!--Excerpt-->
+              <div class="py-0 my-sm-4 my-0">
+                <a href="{% url 'blog_post_view' blog_slug=blog.slug %}">
+                  <h1>
+                    <span
+                      class="font-weight-normal"
+                      style="
+                        color: #2e2f30;
+                        font-family: sans-serif;
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 33.6px;
+                        margin: 0px;
+                        text-transform: none;
+                        text-align: left;
+                        letter-spacing: normal;
+                        text-indent: 0px;
+                      "
+                    >
+                      {{blog.title}}
+                    </span>
+                  </h1>
+                </a>
+                <div class="text-muted text-left mb-2">
+                  <a
+                    href="{% url 'selected_category' category_slug=blog.category.slug %}"
+                    class="light-blue-text"
+                  >
+                    <span class="badge unique-color float-left"
+                      ><strong> {{blog.category}}</strong>
+                    </span>
+                  </a>
+                  <i class="pl-2 far fa-calendar"></i> {{blog.updated_on}}
+                </div>
+
+                <p class="pt-1 py-0 pr-2">
+                  {{ blog.meta_description|safe|truncatewords_html:50 }}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- ads-->
+        <div class="col-lg-3 py-0 my-0 d-none d-xl-block d-md-block d-xxl-none">
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+            crossorigin="anonymous"
+          ></script>
+          <!-- lateral -->
+          <ins
+            class="adsbygoogle"
+            style="display: block"
+            data-ad-client="ca-pub-1810411345881098"
+            data-ad-slot="6899621083"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          ></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+
+        <!--Grid column-->
+        <div
+          class="col-lg-4 col-md-12 pt-2 d-flex align-self-stretch mb-4"
+        ></div>
+      </div>
+      <!--Grid row-->
+    </div>
+
+    <div class="col-md-4 mb-0 z-depth-0">
+      <!-- ads-->
+      <div class="px-0 my-2 d-none d-xl-block d-md-block d-xxl-none">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+          crossorigin="anonymous"
+        ></script>
+        <!-- lateral -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-1810411345881098"
+          data-ad-slot="6899621083"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="px-0 my-3 d-none d-xl-block d-md-block d-xxl-none">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+          crossorigin="anonymous"
+        ></script>
+        <!-- lateral -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-1810411345881098"
+          data-ad-slot="6899621083"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="px-0 my-2 mb-sm-4">
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1810411345881098"
+          crossorigin="anonymous"
+        ></script>
+        <!-- lateral -->
+        <ins
+          class="adsbygoogle"
+          style="display: block"
+          data-ad-client="ca-pub-1810411345881098"
+          data-ad-slot="6899621083"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <!-- /. ads -->
+    </div>
+
+    <div class="col-md-8 mb-0 z-depth-0 mx-0">
+      <!-- blog-->
+      {% block blog %} {% include 'bases/blog.html' %} {% endblock %}
+      <!-- /. blog -->
+    </div>
+  </div>
 </div>
 
 {% endblock content %}
