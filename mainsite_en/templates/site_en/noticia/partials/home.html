@@ -1,23 +1,4 @@
 <div class="container">
-    <!-- Tutorial
-    <div class="banner-top-thumb-wrap">
-      <div class="d-lg-flex justify-content-between align-items-center">
-        <div class="d-flex justify-content-between  mb-3 mb-lg-0">
-          <div>
-            <img
-              src="{% if hot_news.thumbnail_url %}  {{ hot_news.thumbnail_url }} {% else %}{{ hot_news.thumbnail.url }}{% endif %}"
-              alt="thumb"
-              class="banner-top-thumb"
-            />
-          </div>
-          <h5 class="m-0 font-weight-bold">
-            The morning after: What people
-          </h5>
-        </div>
-      </div>
-    </div>
-     -->
-    <!-- / Tutorial -->
     <div class="row">
       <!-- Destake -->
       <div class="col-lg-8">
@@ -30,21 +11,21 @@
               alt="world-news"
             />
             </a>
-            <span class="thumb-title">{{ hot_news.category }}</span>
+            <span class="thumb-title badge bg-primary py-1">{{ hot_news.category }}</span>
           </div>
-          <h1 class="font-weight-600 mt-3">
-            <a href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a>
+          <h1 class="dark-text mt-3">
+            <a class="text-dark h2" href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a>
           </h1>
-          <p class="fs-15 font-weight-normal">
-            {{ hot_news.description|truncatechars:100 }}
-          </p>
+          <span class="fs-5">
+            {{ hot_news.description|safe|truncatechars:100 }}
+          </span>
         </div>
       </div>
       <!-- Destake -->
 
       <!-- catalog-2 -->
       <div class="col-lg-4">
-        <h3 class="mt-5 mt-sm-2 pt-3 font-weight-normal " style="font: size 14px;">Someone said</h3>
+        <h3 class="mt-5 mt-sm-2 pt-3 font-weight-normal " style="font: size 14px;">Alguém disse</h3>
         <hr>
         <div class="row">
          
@@ -79,7 +60,7 @@
     </div>
 
     <!-- Catalog-1 -->
-    <div class="world-news">
+    <div class="world-news px-3">
       <div class="row">
         <div class="col-sm-12">
           <div class="d-flex position-relative  float-left">
@@ -89,37 +70,27 @@
           </div>
         </div>
       </div>
-      <div class="row">
+
+      <div class="row row-cols-1 row-cols-md-4 g-4">
         {% for news in post_catalog_one %}
-        <div class="col-lg-3 col-sm-6 grid-margin mb-5 mb-sm-2">
-          <div class="position-relative image-hover">
-            <a href="{{ news.get_absolute_url }}" class="font-weight-bold text-dark pt-2">
-              <img
-              src="{% if news.thumbnail_url %}  {{ news.thumbnail_url }} {% else %}{{ news.thumbnail.url }}{% endif %}"
-              class="img-fluid"
-              alt="world-news"
-            />
+        <div class="col">
+          <div class="card h-80 z-depth-0">
+            <a href="{{ news.get_absolute_url }}" target="_self">
+              <img src="{% if news.thumbnail_url %}  {{ news.thumbnail_url }} {% else %}{{ news.thumbnail.url }}{% endif %}" class="card-img-top" alt="Los Angeles Skyscrapers"/>
             </a>
-            <span class="thumb-title">{{ news.category }}</span>
+            <div class="card-body px-1">
+              <h1 class="card-title h4 ">
+                <a class="text-dark px-0 py-1" href="{{ news.get_absolute_url }}" style="font-size: 15px; " target="_self">{{ news.title }}</a>
+              </h1>
+            </div>
           </div>
-          <h5 class="font-weight-normal mt-3">
-            <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 15px; " class="font-weight-bold text-dark pt-2"
-            >{{ news.title }}</a>
-          </h5>
-          <p class="fs-15 font-weight-normal">
-            {{ trending.description|safe|truncatechars:100 }}
-          </p>
-          <a href="{{ news.get_absolute_url }}" class="font-weight-bold text-dark pt-2"
-            >Ler artigo</a
-          >
         </div>
         {% endfor %}
-      
       </div>
     </div>
     <!-- / Trending -->
 
-    <div class="editors-news">
+    <div class="editors-news px-3">
       <div class="row">
         <div class="col-lg-3">
           <div class="d-flex position-relative float-left">
@@ -137,12 +108,12 @@
               alt="world-news"
             />
             </a>
-            <span class="thumb-title">{{editor_choice.category}}</span>
+            <span class="thumb-title badge bg-primary py-1">{{editor_choice.category}}</span>
           </div>
-          <h1 class="font-weight-normal mt-3">
-            <a href="{{ editor_choice.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self">{{ editor_choice.title }}</a>
+          <h1 class="dark-text mt-3">
+            <a class="text-dark h2" href="{{ editor_choice.get_absolute_url }}" style="color:#333333; font-size: 25px; " target="_self">{{ editor_choice.title }}</a>
           </h1>
-          <p class="fs-15 font-weight-normal">
+          <p class="fs-5" style="color:#333333; font-size: 25px; ">
             {{ editor_choice.description|safe|truncatechars:100 }}
           </p>
         </div>
@@ -158,17 +129,18 @@
                   alt="world-news"
                 />
                 </a>
-                <span class="thumb-title">{{news.category}}</span>
+                <span class="thumb-title badge bg-primary py-1">{{news.category}}</span>
               </div>
-              
+
               <h5 class="font-weight-normal mt-3">
-                <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 15px; " class="font-weight-normal text-dark pt-2">
-                  {{news.title}}
-                </a>
+                <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 18px; " class="text-dark pt-2"
+                >{{ news.title }}</a>
               </h5>
-              <p class="fs-15 font-weight-normal">
+              
+              
+              <span class="fs-15">
                 {{ news.description|safe|truncatechars:100 }}
-              </p>
+              </span>
             </div>
             {% endfor %}
             
@@ -184,59 +156,33 @@
       </div>
     </div>
 
-    <!-- Popular -->
-    <div class="popular-news">
+    <!-- Catalog-5 -->
+    <div class="world-news px-3">
       <div class="row">
-        <div class="col-lg-3">
-          <div class="d-flex position-relative float-left">
-            <h3 class="section-title">More news</h3>
+        <div class="col-sm-12">
+          <div class="d-flex position-relative  float-left">
+            {% for news in post_catalog_five_title %}
+            <h3 class="section-title ">{{news.category}}</h3>
+            {% endfor %}
           </div>
         </div>
       </div>
-      <div class="row">
-        <!-- Veja Tambem -->
-        <div class="col-lg-9">
-          <div class="row">
-            {% for news in post_catalog_five %}
-            <div class="col-sm-4  mb-5 mb-sm-2">
-              <div class="position-relative image-hover">
-                <a href="{{ news.get_absolute_url }}" class="font-weight-bold text-dark pt-2">
-                  <img
-                  src="{% if news.thumbnail_url %}  {{ news.thumbnail_url }} {% else %}{{ news.thumbnail.url }}{% endif %}"
-                  class="img-fluid"
-                  alt="world-news"
-                />
-                </a>
-                <span class="thumb-title">{{news.category}}</span>
-              </div>
-              <h5 class="font-weight-normal mt-3">
-                <a href="{{ news.get_absolute_url }}" class="font-weight-bold text-dark pt-2">
-                  {{news.title}}
-                </a>
-              </h5>
-            </div>
-            {% endfor %}
-          </div>
-          <div class="row mt-3">
-            <div class="col-sm-4 mb-5 mb-sm-2">
-              
-            </div>
-            <div class="col-sm-4 mb-5 mb-sm-2">
-              
-            </div>
-            <div class="col-sm-4 mb-5 mb-sm-2">
-            
+
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for news in post_catalog_five %}
+        <div class="col">
+          <div class="card h-80 z-depth-0">
+            <a href="{{ news.get_absolute_url }}" target="_self">
+              <img src="{% if news.thumbnail_url %}  {{ news.thumbnail_url }} {% else %}{{ news.thumbnail.url }}{% endif %}" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+            </a>
+            <div class="card-body px-1">
+              <h1 class="card-title h4 ">
+                <a class="text-dark px-0 py-1" href="{{ news.get_absolute_url }}" style="font-size: 15px; " target="_self">{{ news.title }}</a>
+              </h1>
             </div>
           </div>
         </div>
-        <!-- Ads -->
-        <div class="col-lg-3">
-          <div class="row">
-            <div class="col-sm-12">
-              
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

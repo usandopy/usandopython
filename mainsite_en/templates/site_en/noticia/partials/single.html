@@ -9,32 +9,30 @@
             {{ news.title }}
           </h1>
           <div class="text-center">
-            <a href="#" class="btn btn-dark font-weight-bold mb-4">{{news.category}}</a>
+            <a href="{{ news.category.get_absolute_url }}" class="btn btn-primary font-weight-bold mb-4">{{news.category}}</a>
           </div>
           <p class="fs-15 d-flex justify-content-center align-items-center m-0">
             <img
-              src="{% if news.thumbnail_url %}  {{ news.thumbnail_url }} {% else %}{{ news.thumbnail.url }}{% endif %}"
+              src="{% if news.author.profile_pic %}  {{ news.author.profile_pic.url }} {% else %}{{ news.thumbnail.url }}{% endif %}"
               alt=""
-              class="img-xs img-rounded mr-2"
+              class="img-lg img-rounded mr-2"
             />
             {{ news.author|title }} | {{ news.timestamp|date:"j M Y" }}
           </p>
           <p class="pt-4 pb-4">
             {{ news.description|safe }}
           </p>
+
+          <div class="container mt-4 pt-2">
+            {% include 'posts/comments.html' %}
+          </div>
         </div>
        
         
         <div class="news-post-wrapper-sm mt-5">
-          <div class="text-center pb-5 mb-5 border-bottom">
-            {% for tag in news.tags.all %}
-            <a href="{% url 'newspaper:tag' tag %}" class="btn btn-dark font-weight-bold mr-2 mb-2 mb-sm-0"
-              >{{ tag }}</a>
-            {% endfor %}
-            
-          </div>
+          
           <div class="text-center">
-          <h1 class="font-weight-600 text-center mb-5">You might like..</h1>
+          <h1 class="font-weight-600 text-center mb-5">Você pode gostar..</h1>
           {% for post in related_posts %}
           <div class="border-top py-5">
             <div class="row">
@@ -45,8 +43,8 @@
                     alt="news"
                     class="img-fluid"
                   />
-                  <span class="thumb-title">
-                    <a href="{{ post.category.get_absolute_url }}"
+                  <span class="thumb-title badge bg-primary py-1">
+                    <a class="text-white" href="{{ post.category.get_absolute_url }}"
                     target="_self">{{ post.category }}</a>
                   </span>
                 </div>
@@ -58,7 +56,7 @@
                       {{ post.title }}
                     </a>
                   </h1>
-                  <p class="fs-15">O{{ post.author|title }} | {{ post.timestamp|date:"j M Y" }}</p>
+                  <p class="fs-15">{{ post.author|title }} | {{ post.timestamp|date:"j M Y" }}</p>
                 </div>
               </div>
             </div>

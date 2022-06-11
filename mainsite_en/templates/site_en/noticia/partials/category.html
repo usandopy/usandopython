@@ -12,6 +12,7 @@
         <h5 class="text-muted font-weight-medium mb-3">{{ category }}</h5>
       </div>
     </div>
+
     <div class="row">
       {% for news in object_list %} {% if forloop.first %}
       <div class="col-lg-6 mb-5 mb-sm-2">
@@ -25,10 +26,10 @@
           />
           </a>
           
-          <span class="thumb-title">{{category}}</span>
+          <span class="thumb-title badge bg-primary py-1">{{category}}</span>
         </div>
-        <h1 class="font-weight-normal mt-3">
-          <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 25px; " target="_self">
+        <h1 class="dark-text mt-3">
+          <a class="text-dark h2" href="{{ news.get_absolute_url }}" target="_self">
             {{ news.title }}
           </a>
         </h1>
@@ -50,16 +51,14 @@
               />
               </a>
               
-              <span class="thumb-title">{{ news.category }}</span>
+              <span class="thumb-title badge bg-primary py-1">{{ news.category }}</span>
             </div>
             <h5 class="font-weight-normal mt-3">
-                <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 15px; " target="_self"
+                <a href="{{ news.get_absolute_url }}" style="color:#333333; font-size: 18px; " target="_self"
                 >{{ news.title }}
                 </a>
             </h5>
-            <p class="fs-15 font-weight-normal">
-                {{ news.description|safe|truncatechars:100 }}
-            </p>
+            
           </div>
           {% endfor %}
           
@@ -75,7 +74,7 @@
     </div>
     <div class="row mt-5">
       <div class="col-sm-12">
-        <h5 class="text-muted font-weight-medium mb-3">More about {{category}}</h5>
+        <h5 class="font-weight-medium mb-3">Mais sobre {{category}}</h5>
       </div>
     </div>
     <div class="row mb-4">
@@ -87,7 +86,7 @@
             class="img-fluid"
             alt="world-news"
           />
-          <span class="thumb-title">{{news.category}}</span>
+          <span class="thumb-title badge bg-primary py-1">{{news.category}}</span>
         </div>
         <h5 class="font-weight-normal mt-3">
             <a href="{{ news.get_absolute_url }}" target="_self"
