@@ -30,6 +30,7 @@ admin.site.enable_nav_sidebar = False
 urlpatterns = [
     path('', include('main.urls')),
     path('noticias/', include('mainsite.urls')),
+    path('news/', include('mainsite_en.urls')),
     path('en/', include('main_en.urls')),
     path('es/', include('main_es.urls')),
     path('admin/', admin.site.urls),

@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'main_en',
     'main_es',
     'mainsite.apps.MainsiteConfig',
+    'mainsite_en.apps.Mainsite_enConfig',
     'news.apps.NewsConfig',
+    'news_en.apps.News_enConfig',
     'ckeditor',
     'ckeditor_uploader',
 
