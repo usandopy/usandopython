@@ -14,16 +14,15 @@
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-80 z-depth-0 ">
-            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
+            <img src="{% if hot_news.thumbnail_url %}  {{ hot_news.thumbnail_url }} {% else %}{{ hot_news.thumbnail.url }}{% endif %}" class="card-img-top" alt="Skyscrapers"/>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title"><a href="{{ hot_news.get_absolute_url }}" target="_self">{{ hot_news.title }}</a></h5>
               <p class="card-text">
-                This is a wider card with supporting text below as a natural lead-in to
-                additional content. This content is a little bit longer.
+                {{ hot_news.description|safe|truncatechars:100 }}
               </p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted">{{ hot_news.timestamp|date:"j M Y" }}</small>
             </div>
           </div>
         </div>

@@ -47,6 +47,9 @@ class Home(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(Home, self).get_context_data(*args, **kwargs)
 
+        results = self.get_home_page_post_list()
+        context['hot_news'] = results[0]
+
         context['tipo'] = Tipo.objects.all().order_by('id')
         context['canal'] = Canal.objects.all().order_by('id')
         context['equipa'] = Equipa.objects.all().order_by('id')
